@@ -1,13 +1,28 @@
 #include<stdio.h>
 #include<string.h>
+#include<stdlib.h>
 
 int main() {
 
   int counter1[] = {0, 0, 0, 0};
   int counter2[] = {0, 0, 0, 0};
 
-  char s1[] = "dbb cccccaacb cdbababdcdcdab dcdad";
-  char s2[] = "bbbcc bdddccccad cdbbaaacaccdabdd";
+  char s1[50];
+  char s2[50];
+
+  printf("Enter a string consisting of the letters a through d:");
+  /* Using scanset character ([]) and ^\n to take input until new line
+  is encountered. %*c indicates that newline character should be discarded.
+  */
+  scanf("%[^\n]%*c", s1);
+  printf("Enter a second string consisting of the letters a through d to see if it's an anagram:");
+  scanf("%[^\n]%*c", s2);
+
+
+  if (strlen(s1) > 50 || strlen(s2) > 50){
+    printf("Your strings are too long!\n");
+    exit(0);
+  }
 
   for (int i = 0; i < strlen(s1); i++){
     if (s1[i] == 'a'){
@@ -18,9 +33,12 @@ int main() {
       counter1[2]++;
     } else if (s1[i] == 'd'){
       counter1[3]++;
+    } else {
+      printf("Unrecognized character in string.\n");
+      exit(0);
     }
   }
-
+  
   for (int i = 0; i < strlen(s2); i++){
     if (s2[i] == 'a'){
       counter2[0]++;
@@ -30,6 +48,9 @@ int main() {
       counter2[2]++;
     } else if (s2[i] == 'd'){
       counter2[3]++;
+    } else {
+      printf("Unrecognized character in string.\n");
+      exit(0);
     }
   }
 
@@ -42,10 +63,10 @@ int main() {
   }
  
   if (flag == 0){
-    printf("Anagram!");
+    printf("Anagram!\n");
 
   } else {
-    printf("Not Anagram!");
+    printf("Not Anagram!\n");
   }
 
 
