@@ -7,8 +7,8 @@ int main() {
   int counter1[] = {0, 0, 0, 0};
   int counter2[] = {0, 0, 0, 0};
 
-  char s1[50];
-  char s2[50];
+  char* s1;
+  char* s2;
 
   printf("Enter a string consisting of the letters a through d:");
   /* Using scanset character ([]) and ^\n to take input until new line
@@ -17,12 +17,6 @@ int main() {
   scanf("%[^\n]%*c", s1);
   printf("Enter a second string consisting of the letters a through d to see if it's an anagram:");
   scanf("%[^\n]%*c", s2);
-
-
-  if (strlen(s1) > 50 || strlen(s2) > 50){
-    printf("Your strings are too long!\n");
-    exit(0);
-  }
 
   for (int i = 0; i < strlen(s1); i++){
     if (s1[i] == 'a'){
