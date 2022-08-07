@@ -1,6 +1,6 @@
 # suddenly-I-C
 A repository to hold scripts in my quest to learn C! These are projects
-taken from the CodeAcademy course "Learn C".
+taken from the Codecademy course "Learn C".
 
 ## Scripts
 ### anagrams.c
